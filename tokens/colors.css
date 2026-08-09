@@ -1,0 +1,54 @@
+/* Warm neutrals only. No pink, ever. Ink is a warm near-black brown — never #000. */
+:root {
+  /* Base palette */
+  --morning: #EFEDE7;   /* base background, nearly every surface */
+  --tulle: #DEDAD1;     /* cards, section blocks, hover states */
+  --brass: #B98B4A;     /* the pin, hairline rules, small accents — never body text */
+  --tortoise: #6E4A2C;  /* subheads, labels, captions, secondary copy */
+  --ink: #241E19;       /* body text, and reversed/dark panels */
+  --sage: #9DA391;      /* rare — one accent per page maximum */
+
+  /* Tints derived from the base six. Nothing new, just measured transparency. */
+  --ink-90: rgba(36, 30, 25, 0.9);
+  --ink-75: rgba(36, 30, 25, 0.75);
+  --ink-60: rgba(36, 30, 25, 0.6);
+  --ink-40: rgba(36, 30, 25, 0.4);
+  --ink-raised: #2E2721;          /* panel inside an Ink field (deck slide 4) */
+  --tortoise-18: rgba(110, 74, 44, 0.18);
+  --tortoise-12: rgba(110, 74, 44, 0.12);
+  --tortoise-09: rgba(110, 74, 44, 0.09);
+  --brass-pale: #E4C089;          /* the ampersand over photography only */
+  --sage-10: rgba(157, 163, 145, 0.1);
+
+  /* Semantic — surfaces */
+  --surface-page: var(--morning);
+  --surface-block: var(--tulle);      /* section blocks, cards, quiet panels */
+  --surface-card: var(--tulle);
+  --surface-inverse: var(--ink);      /* reversed panels, deck covers, footers */
+  --surface-inverse-raised: var(--ink-raised);
+  --surface-hover: var(--tulle);
+
+  /* Semantic — text */
+  --text-body: var(--ink);
+  --text-display: var(--ink);
+  --text-secondary: var(--tortoise);  /* subheads, captions, labels */
+  --text-label: var(--tortoise);
+  --text-muted: var(--ink-60);
+  --text-accent: var(--brass);        /* numerals, markers, the ampersand */
+  --text-on-inverse: var(--morning);
+  --text-secondary-on-inverse: var(--tulle);
+  --text-label-on-inverse: var(--brass);
+
+  /* Semantic — lines */
+  --line-hairline: var(--tortoise-18);   /* the 1px section rule */
+  --line-faint: var(--tortoise-09);      /* list dividers */
+  --line-accent: var(--brass);           /* the brass rule under a table head */
+  --line-strong: var(--ink);             /* secondary button outline, inputs */
+
+  /* Semantic — interactive */
+  --action-fill: var(--ink);
+  --action-fill-hover: var(--tortoise);
+  --action-text: var(--morning);
+  --action-outline: var(--ink);
+  --focus-ring: var(--brass);
+}

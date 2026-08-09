@@ -1,0 +1,32 @@
+<!-- @dsCard group="Components" viewport="700x380" name="Forms" subtitle="Field, input, select, choice tiles" -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{padding:22px 26px}.two{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}.stack{display:flex;flex-direction:column;gap:18px}</style>
+</head><body><div id="root"></div>
+<script type="text/babel">
+const { Field, Input, Select, ChoiceGroup, Button } = window.PolishedAmpPinnedDesignSystem_6a1c01;
+function Card(){
+  const [band,setBand] = React.useState("b");
+  return (<div className="stack">
+    <div className="two">
+      <Field label="Your name" htmlFor="n" required><Input id="n" defaultValue="Erin Whitcombe"/></Field>
+      <Field label="Wedding date" htmlFor="d" required><Input id="d" placeholder="12 September 2026"/></Field>
+      <Field label="Party size" htmlFor="p"><Select id="p" placeholder="How many heads?" options={["Just me","Two to four","Five to eight","More than eight"]}/></Field>
+      <Field label="Email" htmlFor="e" hint="We reply within one working day."><Input id="e" type="email" placeholder="you@example.com"/></Field>
+    </div>
+    <Field label="Budget band" hint="There is no price list — every morning is different, so we talk first.">
+      <ChoiceGroup name="b" columns={4} value={band} onChange={setBand} options={[
+        {value:"a",label:"Under $800"},{value:"b",label:"$800 – $1,400"},
+        {value:"c",label:"$1,400 – $2,200"},{value:"d",label:"Still working it out"}]}/>
+    </Field>
+    <div className="two">
+      <Field label="Anything else" htmlFor="x"><Input id="x" multiline rows={3} placeholder="Fine hair, an early start, a venue we should know about"/></Field>
+      <div style={{alignSelf:"end"}}><Button type="submit">Send the enquiry</Button></div>
+    </div>
+  </div>);
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Card/>);
+</script></body></html>

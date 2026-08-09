@@ -1,0 +1,51 @@
+/* Two typefaces. Hierarchy comes from size and from switching family — never from
+   a synthetic bold. Instrument Serif has no bold; Karla never goes above 500.
+   Tracking moves opposite to size: display negative, small uppercase strongly positive. */
+:root {
+  /* Weights */
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+
+  /* Sizes — desktop web. Scale down 15–20% on mobile. */
+  --size-hero: 76px;        /* range 64–92 */
+  --size-headline: 40px;    /* range 38–44 */
+  --size-subhead: 30px;     /* range 28–32 */
+  --size-title: 23px;
+  --size-quote: 25px;       /* range 22–27, italic */
+  --size-lede: 17.5px;
+  --size-body: 15px;
+  --size-body-sm: 13.5px;
+  --size-caption: 12px;
+  --size-label: 10px;
+  --size-wordmark: 25px;    /* minimum; wordmark never sets smaller */
+
+  /* Line heights */
+  --leading-hero: 0.96;
+  --leading-headline: 1.1;
+  --leading-subhead: 1.15;
+  --leading-quote: 1.35;
+  --leading-lede: 1.6;
+  --leading-body: 1.65;
+  --leading-body-sm: 1.55;
+  --leading-caption: 1.5;
+  --leading-label: 1.4;
+
+  /* Tracking */
+  --tracking-hero: -0.015em;
+  --tracking-headline: -0.012em;
+  --tracking-subhead: -0.01em;
+  --tracking-quote: 0;
+  --tracking-body: 0;
+  --tracking-caption: 0.01em;
+  --tracking-button: 0.16em;
+  --tracking-label: 0.22em;
+  --tracking-wordmark: 0.30em;      /* line 1, "POLISHED" */
+  --tracking-wordmark-wide: 0.60em; /* line 2, "PINNED" */
+  --tracking-descriptor: 0.28em;
+
+  /* Measure — the single most impactful typographic decision here */
+  --measure: 66ch;   /* 60–70 characters, never past 70 */
+  --measure-tight: 44ch;
+  --measure-display: 34ch;
+}

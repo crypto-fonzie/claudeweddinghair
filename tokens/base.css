@@ -1,0 +1,52 @@
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--surface-page);
+  color: var(--text-body);
+  font-family: var(--font-body);
+  font-weight: var(--weight-light);
+  font-size: var(--size-body);
+  line-height: var(--leading-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+h1, h2, h3 { font-family: var(--font-display); font-weight: var(--weight-regular); margin: 0; }
+h1 { font-size: var(--size-headline); line-height: var(--leading-headline); letter-spacing: var(--tracking-headline); }
+h2 { font-size: var(--size-subhead); line-height: var(--leading-subhead); letter-spacing: var(--tracking-subhead); }
+h3 { font-size: var(--size-title); line-height: 1.25; }
+h4, h5, h6 { font-family: var(--font-body); font-weight: var(--weight-medium); font-size: var(--size-body); margin: 0; }
+p { margin: 0 0 var(--space-4); max-width: var(--measure); text-wrap: pretty; }
+p:last-child { margin-bottom: 0; }
+strong { font-weight: var(--weight-medium); }
+em { font-style: italic; }
+img { display: block; max-width: 100%; }
+hr { border: 0; border-top: var(--border-hairline); margin: var(--space-7) 0; }
+a { color: var(--tortoise); text-decoration: none; border-bottom: 1px solid var(--tortoise-18); transition: border-color var(--motion-hover-duration) var(--motion-hover-ease), color var(--motion-hover-duration) var(--motion-hover-ease); }
+a:hover { color: var(--ink); border-bottom-color: var(--brass); }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 1px solid var(--focus-ring); outline-offset: 3px; }
+::selection { background: var(--brass); color: var(--morning); }
+::placeholder { color: var(--ink-40); }
+input, select, textarea, button { font: inherit; color: inherit; border-radius: var(--radius); }
+table { border-collapse: collapse; }
+
+/* Type roles — the same styles the components use, available to plain markup. */
+.pp-hero { font-family: var(--font-display); font-weight: var(--weight-regular); font-size: var(--size-hero); line-height: var(--leading-hero); letter-spacing: var(--tracking-hero); }
+.pp-headline { font-family: var(--font-display); font-size: var(--size-headline); line-height: var(--leading-headline); letter-spacing: var(--tracking-headline); }
+.pp-subhead { font-family: var(--font-display); font-size: var(--size-subhead); line-height: var(--leading-subhead); letter-spacing: var(--tracking-subhead); }
+.pp-quote { font-family: var(--font-display); font-style: italic; font-size: var(--size-quote); line-height: var(--leading-quote); color: var(--text-secondary); letter-spacing: 0; }
+.pp-lede { font-size: var(--size-lede); line-height: var(--leading-lede); font-weight: var(--weight-light); }
+.pp-body-sm { font-size: var(--size-body-sm); line-height: var(--leading-body-sm); }
+.pp-caption { font-size: var(--size-caption); line-height: var(--leading-caption); letter-spacing: var(--tracking-caption); color: var(--text-secondary); font-weight: var(--weight-regular); }
+.pp-label { font-size: var(--size-label); line-height: var(--leading-label); letter-spacing: var(--tracking-label); text-transform: uppercase; font-weight: var(--weight-medium); color: var(--text-label); }
+
+/* Layout grids — inline React styles cannot hold media queries. Grids keep their
+   columns inline and add .pp-stack to collapse; .pp-stack-2 takes a wide grid
+   through a 2-column stage first. Never put a 3-item triad on .pp-stack-2:
+   it orphans the third cell. */
+@media (max-width: 1024px) { .pp-stack-2 { grid-template-columns: repeat(2, 1fr) !important; } }
+@media (max-width: 760px) {
+  .pp-stack, .pp-stack-2 { grid-template-columns: 1fr !important; }
+}
+
+/* Choice tiles hide their native control, so the focus ring goes on the tile. */
+.pp-choice:has(input:focus-visible) { outline: 2px solid var(--brass); outline-offset: -2px; }

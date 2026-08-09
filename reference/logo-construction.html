@@ -1,0 +1,358 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Polished &amp; Pinned — Identity Construction</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:#EFEDE7; --tulle:#DEDAD1; --brass:#B98B4A;
+    --tortoise:#6E4A2C; --ink:#241E19; --sage:#9DA391;
+    --rule:rgba(110,74,44,.18);
+    --display:"Instrument Serif", Georgia, serif;
+    --body:"Karla", system-ui, sans-serif;
+    --gut:clamp(20px,5vw,64px);
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--paper); color:var(--ink);
+    font-family:var(--body); font-weight:300; line-height:1.62; font-size:15px;
+    -webkit-font-smoothing:antialiased;}
+  .doc{max-width:900px; margin:0 auto; padding:var(--gut);}
+
+  .kick{font-size:10px; letter-spacing:.24em; text-transform:uppercase;
+    color:var(--tortoise); font-weight:500; margin:0 0 22px;}
+
+  .top{padding:clamp(14px,4vw,36px) 0 clamp(36px,6vw,56px); border-bottom:1px solid var(--rule);}
+  .top h1{font-family:var(--display); font-weight:400;
+    font-size:clamp(36px,7.5vw,66px); line-height:1.02; letter-spacing:-.015em; margin:0 0 18px;}
+  .top h1 em{font-style:italic; color:var(--tortoise);}
+  .top p{max-width:64ch; margin:0 0 14px;}
+
+  .sec{padding:clamp(42px,6vw,72px) 0; border-bottom:1px solid var(--rule);}
+  .sec:last-of-type{border-bottom:0;}
+  .sec > .n{font-family:var(--display); font-size:14px; color:var(--brass);
+    display:block; margin-bottom:11px; letter-spacing:.08em;}
+  .sec > h2{font-family:var(--display); font-weight:400;
+    font-size:clamp(26px,4.2vw,38px); line-height:1.1; margin:0 0 15px; letter-spacing:-.012em;}
+  .sec p{max-width:66ch; margin:0 0 16px;}
+  .sec p strong{font-weight:500;}
+
+  h3.mini{font-family:var(--body); font-size:10.5px; letter-spacing:.2em;
+    text-transform:uppercase; color:var(--tortoise); font-weight:500;
+    margin:36px 0 16px; padding-bottom:9px; border-bottom:1px solid var(--rule);}
+
+  /* ---------- THE LOCKUP ---------- */
+  .lk{font-family:var(--display); text-transform:uppercase; text-align:center; line-height:1;}
+  .lk .l1{display:block; letter-spacing:.30em; text-indent:.30em;}
+  .lk .amp{display:block; font-style:italic; text-transform:none;
+    color:var(--brass); letter-spacing:0; text-indent:0;}
+  .lk .l2{display:block; letter-spacing:.60em; text-indent:.60em;}
+  .lk .desc{display:block; margin-top:16px; text-transform:none;
+    font-family:var(--body); font-weight:400; color:var(--tortoise);}
+  .lk .desc .bh{text-transform:uppercase; letter-spacing:.28em;}
+  .lk .desc .by{font-family:var(--display); font-style:italic; letter-spacing:.01em;}
+  .lk .desc .dot{color:var(--brass); margin:0 .6em;}
+
+  /* size variants */
+  .lk.xl{font-size:44px;} .lk.xl .amp{font-size:34px; margin:.14em 0;}
+  .lk.xl .desc{font-size:10px;}
+  .lk.md{font-size:26px;} .lk.md .amp{font-size:20px; margin:.14em 0;}
+  .lk.md .desc{font-size:8px; margin-top:12px;}
+  .lk.sm{font-size:15px;} .lk.sm .amp{font-size:12px; margin:.14em 0;}
+  .lk.sm .desc{font-size:6.5px; margin-top:8px;}
+
+  /* horizontal lockup */
+  .lkh{display:flex; align-items:center; gap:22px; font-family:var(--display);}
+  .lkh .txt{text-align:left; line-height:1.1;}
+  .lkh .nm{display:block; text-transform:uppercase; letter-spacing:.26em;
+    text-indent:.26em; font-size:23px;}
+  .lkh .nm i{font-style:italic; color:var(--brass); text-transform:none; letter-spacing:0;}
+  .lkh .ds{display:block; font-family:var(--body); font-weight:400;
+    font-size:8px; letter-spacing:.28em; text-transform:uppercase;
+    color:var(--tortoise); margin-top:9px;}
+  .lkh .ds .by{font-family:var(--display); font-style:italic;
+    text-transform:none; letter-spacing:.01em; font-size:11px;}
+  .lkh .ds .dot{color:var(--brass); margin:0 .5em;}
+
+  /* stages */
+  .stage{border:1px solid var(--rule); background:var(--paper);
+    display:flex; align-items:center; justify-content:center;
+    padding:clamp(34px,6vw,64px) 24px; margin-bottom:14px;}
+  .stage.ink{background:var(--ink); border-color:var(--ink);}
+  .stage.ink .lk .l1, .stage.ink .lk .l2, .stage.ink .lkh .nm{color:var(--paper);}
+  .stage.ink .lk .desc, .stage.ink .lkh .ds{color:var(--tulle);}
+  .stage.photo{background:linear-gradient(150deg, rgba(110,74,44,.62), rgba(36,30,25,.78));
+    border-color:transparent;}
+  .stage.photo .lk .l1, .stage.photo .lk .l2{color:#fff;}
+  .stage.photo .lk .desc{color:rgba(255,255,255,.88);}
+  .stage.photo .lk .amp{color:#E4C089;}
+  .cap{font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--tortoise); margin:0 0 28px;}
+
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  @media(max-width:680px){ .grid2{grid-template-columns:1fr;} }
+
+  /* clear space diagram */
+  .cs{border:1px solid var(--rule); padding:44px; display:flex;
+    justify-content:center; background:var(--paper);}
+  .cs-inner{position:relative; padding:46px; outline:1px dashed rgba(185,139,74,.65);}
+  .cs-inner::before{content:"x"; position:absolute; left:18px; top:14px;
+    font-family:var(--display); font-style:italic; font-size:13px; color:var(--brass);}
+  .cs-mark{position:absolute; background:rgba(185,139,74,.16);}
+  .cs-t{top:0; left:0; right:0; height:46px;}
+  .cs-b{bottom:0; left:0; right:0; height:46px;}
+  .cs-l{left:0; top:46px; bottom:46px; width:46px;}
+  .cs-r{right:0; top:46px; bottom:46px; width:46px;}
+
+  /* size ladder */
+  .ladder{display:flex; align-items:flex-end; gap:34px; flex-wrap:wrap;
+    border:1px solid var(--rule); padding:38px 30px 26px; background:var(--paper);}
+  .rung{text-align:center;}
+  .rung .cap{margin:16px 0 0; display:block;}
+
+  /* avatar */
+  .avrow{display:flex; align-items:center; gap:20px; flex-wrap:wrap;}
+  .av{width:44px; height:44px; border-radius:50%; background:var(--tulle);
+    display:flex; align-items:center; justify-content:center; flex:none;}
+  .av.dk{background:var(--ink);}
+  .av.br{background:var(--brass);}
+
+  /* misuse */
+  .mis{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:2px; background:var(--rule); border:1px solid var(--rule);}
+  .mis > div{background:var(--paper); padding:26px 20px 18px; text-align:center;
+    display:flex; flex-direction:column; align-items:center; justify-content:space-between;
+    min-height:158px;}
+  .mis .bad{font-family:var(--display); text-transform:uppercase; opacity:.5; line-height:1.15;}
+  .mis .why{font-size:11.5px; line-height:1.45; color:var(--tortoise); margin-top:16px;}
+
+  ul.plain{list-style:none; padding:0; margin:0 0 18px; max-width:66ch;}
+  ul.plain li{position:relative; padding:0 0 11px 24px; font-size:14.5px;}
+  ul.plain li::before{content:""; position:absolute; left:2px; top:9px;
+    width:7px; height:11px; border:1.5px solid var(--brass);
+    border-top-left-radius:6px; border-top-right-radius:6px; border-bottom:0;}
+
+  .note{background:var(--tulle); border-left:2px solid var(--brass);
+    padding:22px 26px; margin:26px 0; max-width:70ch;}
+  .note p{margin:0; font-size:14px;}
+  .note p + p{margin-top:12px;}
+</style>
+
+<div class="doc">
+
+<header class="top">
+  <p class="kick">Identity construction · v1</p>
+  <h1>Polished <em>&amp;</em> Pinned</h1>
+  <p>Two things the name gives us for free. <strong>“Pinned”</strong> means the brass hairpin now illustrates the brand rather than decorating it — the mark and the name explain each other. And the <strong>ampersand</strong>, set in Instrument Serif's italic, becomes the pivot the whole lockup is built around: the one warm, curved, hand-drawn shape in an otherwise upright and disciplined system.</p>
+  <p><strong>“by Noelle”</strong> is doing quiet strategic work too. A referral business runs on trust in a person, but a personal name alone can't scale past one pair of hands. This structure gets both — an ownable trading name with personal accountability sitting directly beneath it.</p>
+</header>
+
+<!-- 01 -->
+<section class="sec">
+  <span class="n">01</span>
+  <h2>Primary lockup</h2>
+  <p>Stacked, with the ampersand centred as the pivot. This is the default — deck covers, the site header, signage, packaging, anywhere with room to breathe.</p>
+
+  <div class="stage">
+    <div class="lk xl">
+      <span class="l1">Polished</span>
+      <span class="amp">&amp;</span>
+      <span class="l2">Pinned</span>
+      <span class="desc"><span class="bh">Bridal Hair</span><span class="dot">·</span><span class="by">by Noelle</span></span>
+    </div>
+  </div>
+  <p class="cap">Primary — stacked</p>
+
+  <div class="note">
+    <p><strong>The optical alignment note.</strong> “Polished” is eight letters and “Pinned” is six, so identical letterspacing would leave the second line visibly short and the stack lopsided. The two lines carry <em>different</em> tracking — roughly 0.30em and 0.60em — so they finish at the same width and the block reads as a rectangle.</p>
+    <p>These numbers get you close. Final spacing is corrected by eye at full size, then the whole thing is converted to outlines and saved as the master file.</p>
+  </div>
+
+  <h3 class="mini">On dark and over photography</h3>
+  <div class="grid2">
+    <div class="stage ink">
+      <div class="lk md">
+        <span class="l1">Polished</span>
+        <span class="amp">&amp;</span>
+        <span class="l2">Pinned</span>
+        <span class="desc"><span class="bh">Bridal Hair</span><span class="dot">·</span><span class="by">by Noelle</span></span>
+      </div>
+    </div>
+    <div class="stage photo">
+      <div class="lk md">
+        <span class="l1">Polished</span>
+        <span class="amp">&amp;</span>
+        <span class="l2">Pinned</span>
+        <span class="desc"><span class="bh">Bridal Hair</span><span class="dot">·</span><span class="by">by Noelle</span></span>
+      </div>
+    </div>
+  </div>
+  <p class="cap">Reversed on Ink · over image</p>
+  <p>Over photography the ampersand lifts to a paler brass so it doesn't disappear into a dark image. Everything else goes pure white. Only ever place the lockup over the quiet part of a frame — never across a face or across detailed hair.</p>
+</section>
+
+<!-- 02 -->
+<section class="sec">
+  <span class="n">02</span>
+  <h2>Horizontal lockup</h2>
+  <p>For anywhere the stack is too tall: the site navigation bar, email signatures, letterhead, the footer of a quote document. The pin leads, the name follows.</p>
+
+  <div class="stage">
+    <div class="lkh">
+      <svg width="30" height="70" viewBox="0 0 40 78" fill="none" aria-label="Hairpin mark">
+        <path d="M13 70 L13 31 A7 7 0 0 1 27 31 C27 40 22 43 27 50 C32 57 24 60 27 68"
+              stroke="#B98B4A" stroke-width="2.6" stroke-linecap="round"/>
+      </svg>
+      <span class="txt">
+        <span class="nm">Polished <i>&amp;</i> Pinned</span>
+        <span class="ds">Bridal Hair<span class="dot">·</span><span class="by">by Noelle</span></span>
+      </span>
+    </div>
+  </div>
+  <p class="cap">Horizontal — pin leading</p>
+  <p>The pin sits at the full height of the name plus descriptor, optically centred rather than mathematically centred — it will look low if you centre it by the numbers.</p>
+</section>
+
+<!-- 03 -->
+<section class="sec">
+  <span class="n">03</span>
+  <h2>The pin, alone</h2>
+  <p>Since we dropped the monogram and the bend, the pin carries every small application by itself. That's a heavier load than originally planned, so the proportion is corrected: prongs shortened by about a third, stroke thickened. It now fills a circular crop instead of shrinking to fit one.</p>
+
+  <div class="stage">
+    <div class="avrow">
+      <span class="av">
+        <svg width="17" height="34" viewBox="0 0 40 78" fill="none" aria-hidden="true">
+          <path d="M13 70 L13 31 A7 7 0 0 1 27 31 C27 40 22 43 27 50 C32 57 24 60 27 68"
+                stroke="#6E4A2C" stroke-width="4.5" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="av dk">
+        <svg width="17" height="34" viewBox="0 0 40 78" fill="none" aria-hidden="true">
+          <path d="M13 70 L13 31 A7 7 0 0 1 27 31 C27 40 22 43 27 50 C32 57 24 60 27 68"
+                stroke="#B98B4A" stroke-width="4.5" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="av br">
+        <svg width="17" height="34" viewBox="0 0 40 78" fill="none" aria-hidden="true">
+          <path d="M13 70 L13 31 A7 7 0 0 1 27 31 C27 40 22 43 27 50 C32 57 24 60 27 68"
+                stroke="#EFEDE7" stroke-width="4.5" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span style="font-size:12px; color:var(--tortoise); letter-spacing:.06em;">Actual size — 44px avatar</span>
+    </div>
+  </div>
+  <p class="cap">Avatar · Instagram, WhatsApp Business, Google Business Profile</p>
+  <p>Note the stroke weight changes with size. Below about 60px the pin uses the heavier stroke shown here; above it, the finer stroke from the primary lockup. Two drawings, one shape — this is standard practice and it's what keeps a hairline mark from vanishing on a phone.</p>
+</section>
+
+<!-- 04 -->
+<section class="sec">
+  <span class="n">04</span>
+  <h2>Clear space</h2>
+  <p>Measured in <em>x</em> — the cap height of “Polished”. Nothing enters this zone: no text, no image edge, no button, no other logo.</p>
+
+  <div class="cs">
+    <div class="cs-inner">
+      <span class="cs-mark cs-t"></span><span class="cs-mark cs-b"></span>
+      <span class="cs-mark cs-l"></span><span class="cs-mark cs-r"></span>
+      <div class="lk md">
+        <span class="l1">Polished</span>
+        <span class="amp">&amp;</span>
+        <span class="l2">Pinned</span>
+        <span class="desc"><span class="bh">Bridal Hair</span><span class="dot">·</span><span class="by">by Noelle</span></span>
+      </div>
+    </div>
+  </div>
+  <p class="cap" style="margin-top:14px;">Clear space = 1× cap height on all four sides</p>
+</section>
+
+<!-- 05 -->
+<section class="sec">
+  <span class="n">05</span>
+  <h2>Minimum sizes</h2>
+  <p>Below these thresholds the lockup stops being legible and the descriptor turns to mush. Drop to the next simplest form rather than shrinking further.</p>
+
+  <div class="ladder">
+    <div class="rung">
+      <div class="lk md">
+        <span class="l1">Polished</span><span class="amp">&amp;</span><span class="l2">Pinned</span>
+        <span class="desc"><span class="bh">Bridal Hair</span><span class="dot">·</span><span class="by">by Noelle</span></span>
+      </div>
+      <span class="cap">Full lockup · 34mm / 130px wide min.</span>
+    </div>
+    <div class="rung">
+      <div class="lk sm">
+        <span class="l1">Polished</span><span class="amp">&amp;</span><span class="l2">Pinned</span>
+      </div>
+      <span class="cap">Name only · 20mm / 76px min.</span>
+    </div>
+    <div class="rung">
+      <svg width="20" height="40" viewBox="0 0 40 78" fill="none" aria-hidden="true">
+        <path d="M13 70 L13 31 A7 7 0 0 1 27 31 C27 40 22 43 27 50 C32 57 24 60 27 68"
+              stroke="#B98B4A" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+      <span class="cap">Pin only · 5mm / 20px min.</span>
+    </div>
+  </div>
+  <p style="margin-top:18px;">The descriptor is the first thing to go. Below full-lockup minimum, drop “Bridal Hair · by Noelle” and keep the name. Below name minimum, drop to the pin.</p>
+</section>
+
+<!-- 06 -->
+<section class="sec">
+  <span class="n">06</span>
+  <h2>Considered and rejected</h2>
+  <p>Worth recording, because both will get suggested eventually.</p>
+  <ul class="plain">
+    <li><strong>The pin replacing the “I” in PINNED.</strong> Tempting, and wrong. Icon-for-letter substitution reduces legibility at exactly the sizes where the name matters most, it dates badly, and it makes the wordmark unusable in plain text contexts. The pin stays a separate element.</li>
+    <li><strong>A “P&amp;P” monogram.</strong> Genuinely good-looking, and the alliteration makes it work. But you dropped the monogram direction, and adding it back gives four competing marks for one small business. If a stamp or embroidery application ever demands something squarer than the pin, revisit it — otherwise leave it.</li>
+  </ul>
+</section>
+
+<!-- 07 -->
+<section class="sec">
+  <span class="n">07</span>
+  <h2>Misuse</h2>
+  <div class="mis">
+    <div>
+      <span class="bad" style="font-family:cursive; font-size:20px; text-transform:none;">Polished &amp; Pinned</span>
+      <span class="why">Never reset in another typeface — especially a script.</span>
+    </div>
+    <div>
+      <span class="bad" style="letter-spacing:0; font-size:19px;">POLISHED &amp; PINNED</span>
+      <span class="why">Never remove the letterspacing. The air is the brand.</span>
+    </div>
+    <div>
+      <span class="bad" style="font-size:19px; letter-spacing:.2em; transform:scaleX(1.5); display:inline-block;">POLISHED</span>
+      <span class="why">Never stretch, condense, or distort to fill a space.</span>
+    </div>
+    <div>
+      <span class="bad" style="font-size:19px; letter-spacing:.2em; color:#C64B8C;">POLISHED</span>
+      <span class="why">Never recolour outside the palette. No pink, ever.</span>
+    </div>
+    <div>
+      <span class="bad" style="font-size:19px; letter-spacing:.2em; text-shadow:2px 3px 4px rgba(0,0,0,.4);">POLISHED</span>
+      <span class="why">No shadows, glows, bevels, or outlines.</span>
+    </div>
+    <div>
+      <span class="bad" style="font-size:19px; letter-spacing:.2em; transform:rotate(-13deg); display:inline-block;">POLISHED</span>
+      <span class="why">Never rotate or set on an arc.</span>
+    </div>
+  </div>
+</section>
+
+<!-- 08 -->
+<section class="sec">
+  <span class="n">08</span>
+  <h2>Before this gets locked</h2>
+  <p>Four checks, in order of how expensive they are to discover late.</p>
+  <ul class="plain">
+    <li><strong>Handle and domain.</strong> Check <em>@polishedandpinned</em> on Instagram and the matching .com together, plus your local equivalent. In this category the handle matters more than the domain — take the handle even if the domain needs a variant.</li>
+    <li><strong>Local trading register.</strong> Search for an existing hair or beauty business using the name in her region before any money is spent on print.</li>
+    <li><strong>The copy counterbalance.</strong> One tension worth naming: “Polished” leans slightly toward <em>done</em>, while the messaging pillar <strong>Yours</strong> promises she'll still look like herself. That's manageable, but the website and the trial copy should lean hard on <em>Yours</em> so the name reads as “finished properly,” not “made over.”</li>
+    <li><strong>Say it on the phone.</strong> Have someone spell it back after hearing it once. “Polished and Pinned” — ampersand or the word “and” in the handle is a real decision, and the spoken version is the one that gets typed into a search bar.</li>
+  </ul>
+</section>
+
+</div>

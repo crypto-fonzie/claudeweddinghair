@@ -1,0 +1,21 @@
+/* One fade-and-rise on load. Nothing else. Always respect prefers-reduced-motion. */
+:root {
+  --motion-rise-duration: 0.8s; /* @kind other */
+  --motion-rise-distance: 10px;
+  --motion-rise-stagger: 80ms; /* @kind other */
+  --motion-ease: cubic-bezier(0.22, 0.61, 0.36, 1); /* @kind other */
+  --motion-hover-duration: 0.25s; /* @kind other */
+  --motion-hover-ease: ease; /* @kind other */
+}
+
+@keyframes pp-rise {
+  from { opacity: 0; transform: translateY(var(--motion-rise-distance)); }
+  to { opacity: 1; transform: none; }
+}
+
+.pp-rise { animation: pp-rise var(--motion-rise-duration) var(--motion-ease) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pp-rise { animation: none; }
+  * { transition-duration: 0.01ms !important; }
+}

@@ -1,0 +1,16 @@
+<!-- @dsCard group="Brand" viewport="700x190" name="Motion &amp; states" subtitle="One fade-and-rise on load. Hover is a colour shift, nothing moves." -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>body{padding:20px 24px}.g{display:grid;grid-template-columns:1.1fr 1fr;gap:30px}.k{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--tortoise);font-weight:500;margin:0 0 10px}.st{display:flex;gap:10px;align-items:center}.btn{font-family:var(--font-body);font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;padding:12px 22px;background:var(--ink);color:var(--morning)}.btn.h{background:var(--tortoise)}.btn.o{background:transparent;color:var(--ink);border:1px solid var(--ink)}.cap{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-40);margin-top:7px;font-weight:500;text-align:center}.rise{display:flex;gap:8px}.rise span{display:block;height:9px;background:var(--tulle);border-left:1px solid var(--brass);animation:pp-rise .8s var(--motion-ease) both}</style></head><body>
+<div class="g">
+<div><p class="k">Load · fade &amp; rise, 0.8s, translateY 10px, 80ms stagger</p>
+<div style="display:flex;flex-direction:column;gap:7px">
+<span class="pp-rise" style="height:11px;background:var(--tulle);border-left:1px solid var(--brass);width:100%"></span>
+<span class="pp-rise" style="height:11px;background:var(--tulle);border-left:1px solid var(--brass);width:84%;animation-delay:80ms"></span>
+<span class="pp-rise" style="height:11px;background:var(--tulle);border-left:1px solid var(--brass);width:62%;animation-delay:160ms"></span>
+</div>
+<p style="font-size:10.5px;color:var(--ink-60);margin-top:12px">Nothing else animates. Always respect prefers-reduced-motion.</p></div>
+<div><p class="k">Hover · colour shift only</p>
+<div class="st"><div><span class="btn">Enquire</span><div class="cap">Rest · Ink</div></div><div><span class="btn h">Enquire</span><div class="cap">Hover · Tortoise</div></div><div><span class="btn o">Work</span><div class="cap">Secondary</div></div></div>
+<p style="font-size:10.5px;color:var(--ink-60);margin-top:12px">No lift, no scale, no shadow, no underline slide.</p></div>
+</div>
+</body></html>

@@ -1,0 +1,529 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Morning Of — Brand Concept Spec</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:#EFEDE7;
+    --tulle:#DEDAD1;
+    --brass:#B98B4A;
+    --tortoise:#6E4A2C;
+    --ink:#241E19;
+    --sage:#9DA391;
+    --rule:rgba(110,74,44,.18);
+    --display:"Instrument Serif", Georgia, serif;
+    --body:"Karla", system-ui, sans-serif;
+    --gut:clamp(20px,5vw,68px);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:var(--body); font-weight:300; line-height:1.65;
+    font-size:15px; -webkit-font-smoothing:antialiased;
+  }
+  .doc{max-width:860px; margin:0 auto; padding:var(--gut);}
+
+  /* ---------- cover ---------- */
+  .cover{padding:clamp(20px,6vw,60px) 0 clamp(46px,8vw,80px); border-bottom:1px solid var(--rule);}
+  .cover .kicker{
+    font-size:10px; letter-spacing:.24em; text-transform:uppercase;
+    color:var(--tortoise); font-weight:500; margin:0 0 26px;
+  }
+  .cover h1{
+    font-family:var(--display); font-weight:400;
+    font-size:clamp(44px,10vw,92px); line-height:.96;
+    letter-spacing:-.015em; margin:0 0 20px;
+  }
+  .cover h1 em{font-style:italic; color:var(--tortoise);}
+  .cover .sub{
+    font-family:var(--display); font-style:italic;
+    font-size:clamp(18px,2.5vw,25px); color:var(--tortoise);
+    margin:0 0 24px; line-height:1.35;
+  }
+  .cover .meta{font-size:12px; letter-spacing:.06em; color:rgba(36,30,25,.6); margin:0;}
+
+  /* ---------- contents ---------- */
+  .toc{padding:clamp(34px,5vw,54px) 0; border-bottom:1px solid var(--rule);}
+  .toc ol{
+    list-style:none; margin:0; padding:0;
+    columns:2; column-gap:44px;
+  }
+  .toc li{
+    font-size:13.5px; padding:7px 0;
+    border-bottom:1px solid rgba(110,74,44,.09);
+    break-inside:avoid;
+  }
+  .toc li span{color:var(--brass); font-family:var(--display); margin-right:11px;}
+  @media(max-width:620px){ .toc ol{columns:1;} }
+
+  /* ---------- sections ---------- */
+  .sec{padding:clamp(46px,7vw,82px) 0; border-bottom:1px solid var(--rule);}
+  .sec:last-of-type{border-bottom:0;}
+  .sec > .num{
+    font-family:var(--display); font-size:14px; color:var(--brass);
+    display:block; margin-bottom:12px; letter-spacing:.08em;
+  }
+  .sec > h2{
+    font-family:var(--display); font-weight:400;
+    font-size:clamp(28px,4.4vw,42px); line-height:1.08;
+    letter-spacing:-.012em; margin:0 0 18px;
+  }
+  .sec > .stand{
+    font-family:var(--display); font-size:clamp(18px,2.4vw,23px);
+    font-style:italic; color:var(--tortoise); line-height:1.4;
+    max-width:34ch; margin:0 0 30px;
+  }
+  .sec p{max-width:66ch; margin:0 0 17px;}
+  .sec p strong{font-weight:500;}
+
+  h3.mini{
+    font-family:var(--body); font-size:10.5px; letter-spacing:.2em;
+    text-transform:uppercase; color:var(--tortoise); font-weight:500;
+    margin:38px 0 15px; padding-bottom:9px; border-bottom:1px solid var(--rule);
+  }
+
+  ul.plain{list-style:none; padding:0; margin:0 0 20px; max-width:66ch;}
+  ul.plain li{
+    position:relative; padding:0 0 11px 24px; font-size:14.5px;
+  }
+  ul.plain li::before{
+    content:""; position:absolute; left:2px; top:9px;
+    width:7px; height:11px;
+    border:1.5px solid var(--brass); border-top-left-radius:6px;
+    border-top-right-radius:6px; border-bottom:0;
+  }
+
+  /* ---------- pull quote ---------- */
+  .pull{
+    margin:36px 0; padding:30px 34px;
+    background:var(--tulle); border-left:2px solid var(--brass);
+  }
+  .pull p{
+    font-family:var(--display); font-size:clamp(20px,2.8vw,27px);
+    line-height:1.32; margin:0; max-width:32ch;
+  }
+  .pull .attr{
+    font-family:var(--body); font-size:11px; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--tortoise); margin-top:16px;
+  }
+
+  /* ---------- three pillars ---------- */
+  .pillars{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:2px;
+    background:var(--rule); border:1px solid var(--rule); margin:8px 0 26px;}
+  .pillar{background:var(--paper); padding:28px 24px;}
+  .pillar .word{font-family:var(--display); font-size:32px; margin:0 0 4px; color:var(--tortoise);}
+  .pillar .fear{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--brass); margin:0 0 14px;}
+  .pillar p{font-size:13.5px; margin:0; line-height:1.55;}
+
+  /* ---------- audience cards ---------- */
+  .aud{border:1px solid var(--rule); padding:26px 28px; margin-bottom:14px;}
+  .aud .who{font-family:var(--display); font-size:23px; margin:0 0 3px;}
+  .aud .role{font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--brass); margin:0 0 15px;}
+  .aud p{font-size:14px; margin:0 0 12px;}
+  .aud p:last-child{margin-bottom:0;}
+  .aud .quote{font-family:var(--display); font-style:italic; font-size:16.5px; color:var(--tortoise); max-width:44ch;}
+
+  /* ---------- offer table ---------- */
+  .tbl{width:100%; border-collapse:collapse; margin:6px 0 22px; font-size:13.5px;}
+  .tbl th{
+    text-align:left; font-weight:500; font-size:10px; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--tortoise);
+    padding:0 14px 11px 0; border-bottom:1px solid var(--brass);
+  }
+  .tbl td{padding:14px 14px 14px 0; border-bottom:1px solid rgba(110,74,44,.12); vertical-align:top;}
+  .tbl td:first-child{font-family:var(--display); font-size:17px; width:33%; line-height:1.25;}
+  .tbl td.ratio{font-family:var(--display); color:var(--brass); font-size:17px; white-space:nowrap; width:16%;}
+
+  /* ---------- journey ---------- */
+  .step{display:grid; grid-template-columns:64px 1fr; gap:18px; padding:17px 0; border-bottom:1px solid rgba(110,74,44,.1);}
+  .step .when{font-size:10.5px; letter-spacing:.13em; text-transform:uppercase; color:var(--brass); padding-top:4px; line-height:1.4;}
+  .step h4{font-family:var(--display); font-weight:400; font-size:19px; margin:0 0 5px;}
+  .step p{font-size:13.5px; margin:0; max-width:56ch;}
+
+  /* ---------- never list ---------- */
+  .never{border:1px solid var(--tortoise); padding:30px 32px; background:rgba(157,163,145,.1);}
+  .never ul{list-style:none; padding:0; margin:0;}
+  .never li{
+    font-family:var(--display); font-size:18.5px; line-height:1.35;
+    padding:11px 0 11px 26px; position:relative; border-bottom:1px solid rgba(110,74,44,.12);
+  }
+  .never li:last-child{border-bottom:0;}
+  .never li::before{content:"—"; position:absolute; left:0; color:var(--brass);}
+
+  /* ---------- open questions ---------- */
+  .q{padding:16px 0; border-bottom:1px solid rgba(110,74,44,.12);}
+  .q h4{font-family:var(--display); font-weight:400; font-size:19px; margin:0 0 5px;}
+  .q p{font-size:13.5px; margin:0; color:rgba(36,30,25,.75);}
+
+  a{color:var(--tortoise);}
+  a:focus-visible{outline:2px solid var(--brass); outline-offset:3px;}
+</style>
+
+<div class="doc">
+
+<header class="cover">
+  <p class="kicker">Brand concept spec · v1</p>
+  <h1>The <em>Morning</em> Of</h1>
+  <p class="sub">A bridal hair company built on the four hours nobody else is selling.</p>
+  <p class="meta">Working document — names and prices are placeholders until confirmed.</p>
+</header>
+
+<nav class="toc">
+  <ol>
+    <li><span>01</span>The idea</li>
+    <li><span>02</span>What we actually sell</li>
+    <li><span>03</span>Who it's for</li>
+    <li><span>04</span>Mission &amp; values</li>
+    <li><span>05</span>Positioning</li>
+    <li><span>06</span>The messaging spine</li>
+    <li><span>07</span>The offer</li>
+    <li><span>08</span>Naming</li>
+    <li><span>09</span>Voice</li>
+    <li><span>10</span>The journey</li>
+    <li><span>11</span>Content system</li>
+    <li><span>12</span>Across the deliverables</li>
+    <li><span>13</span>Guardrails</li>
+    <li><span>14</span>How we'll know it works</li>
+    <li><span>15</span>Open questions</li>
+  </ol>
+</nav>
+
+<!-- 01 -->
+<section class="sec">
+  <span class="num">01</span>
+  <h2>The idea</h2>
+  <p class="stand">Everyone sells the aisle. We sell the four hours before it.</p>
+
+  <p>Every wedding hair business in the market competes on the same thing: a grid of finished styles. That portfolio is table stakes — a bride will not book without it — but it is also why the category is impossible to tell apart, and why brides end up choosing on price.</p>
+
+  <p>Here is the gap. Brides <em>choose</em> on portfolio, but they <em>talk</em> about the morning. Ask any married woman about her hair stylist and she won't describe the updo. She'll tell you whether the woman turned up on time, whether she was calm, whether she made her mother feel included, whether the room felt good. That is the actual product being consumed, and almost nobody is building a brand on it.</p>
+
+  <p><strong>So: portfolio to category standard, brand on the morning.</strong> The getting-ready room — window light, robes, cold coffee, someone's mum already crying — is unclaimed territory. We claim it.</p>
+
+  <div class="pull">
+    <p>We're there before anyone else is.</p>
+    <div class="attr">The promise line</div>
+  </div>
+
+  <p>It works on three levels at once. Literally — she arrives early, every time. Emotionally — she is the steady presence in a room full of nerves. Commercially — it says she is not the person you book last.</p>
+</section>
+
+<!-- 02 -->
+<section class="sec">
+  <span class="num">02</span>
+  <h2>What we actually sell</h2>
+  <p class="stand">Not a hairstyle. A morning that runs on time.</p>
+
+  <p>This is the most important commercial decision in the spec, so it's worth being blunt about why. A hairstyle is a commodity: it has a going rate, brides collect three quotes, and the cheapest one wins about a third of the time. A managed morning is not comparable to anything, which means it is not price-comparable either.</p>
+
+  <p>Concretely, the product is: <strong>she takes over the getting-ready room.</strong> She builds the hair timeline, tells the bride and the party exactly where to be and when, arrives ahead of schedule, works through the room in a planned order, and hands back a bride who is done and calm before the photographer needs her.</p>
+
+  <h3 class="mini">What's inside the box</h3>
+  <ul class="plain">
+    <li>A trial, treated as a proper appointment rather than an audition</li>
+    <li>A written hair timeline for the morning, shared with the bride and the planner</li>
+    <li>Hair for the bride and her party, on that schedule</li>
+    <li>Veil and accessory fitting, pinned and tested before she leaves</li>
+    <li>A touch-up kit left behind — pins, spray, a spare comb</li>
+    <li>Care and prep instructions in the week before</li>
+  </ul>
+
+  <h3 class="mini">What's deliberately outside it</h3>
+  <p>Not makeup, not planning, not photography. The lane is narrow on purpose — a specialist who does one thing properly is more credible, and more referable, than a generalist. Where a bride needs makeup, she gets a recommendation from a trusted list, which builds the referral network in both directions.</p>
+</section>
+
+<!-- 03 -->
+<section class="sec">
+  <span class="num">03</span>
+  <h2>Who it's for</h2>
+  <p class="stand">One buyer, one influencer, one margin line, one referral engine.</p>
+
+  <div class="aud">
+    <p class="who">The bride</p>
+    <p class="role">Primary buyer · decides · pays or co-pays</p>
+    <p>Late twenties to late thirties. Professional. Planning nine to eighteen months out, usually running the whole wedding off a spreadsheet she built herself. She has a folder of forty saved images and a very clear aesthetic point of view. She is not looking to be transformed — she is quietly terrified of looking like someone else on the day, and of the whole morning running late.</p>
+    <p class="quote">“I want to look like me. Just… the best possible version. And I don't want to be the reason we're behind schedule.”</p>
+  </div>
+
+  <div class="aud">
+    <p class="who">Her mother</p>
+    <p class="role">Influencer · sometimes the payer</p>
+    <p>Often present at the trial, frequently contributing financially, and reliably the person who asks about cost, timing and contingency. She needs reassurance that this is a professional operation, not a favour from a friend. She is also the reason a clear written quote and a proper contract matter more in this category than people assume.</p>
+  </div>
+
+  <div class="aud">
+    <p class="who">The bridal party</p>
+    <p class="role">Where the margin actually is</p>
+    <p>Five to eight additional heads per booking, and the single biggest lever on revenue per wedding. The party is also the best marketing asset in the business: three of them are usually engaged or about to be, and they experience the entire service first-hand. Every party member should leave knowing who did the hair and how to find her.</p>
+  </div>
+
+  <div class="aud">
+    <p class="who">Planners &amp; venues</p>
+    <p class="role">The referral engine · a separate brand audience</p>
+    <p>These buy something completely different from what the bride buys. They do not care about the aesthetic — they care that the supplier does not create problems on the day. Reliability, punctuality, professional conduct in front of their client, and never going over the allotted time. This audience is why the partner deck exists and why <em>“we're there before anyone else is”</em> lands even harder with them than it does with brides.</p>
+  </div>
+
+  <h3 class="mini">Who it's explicitly not for</h3>
+  <p>Naming the anti-audience is what keeps the brand from drifting. This is not for the bride shopping purely on price, the four-weeks-out emergency booking, the bride who wants a dramatic transformation into someone unrecognisable, or the party of fifteen that turns the morning into a production line. Turning those away — politely, with a referral elsewhere — is a brand decision, not a lost sale.</p>
+</section>
+
+<!-- 04 -->
+<section class="sec">
+  <span class="num">04</span>
+  <h2>Mission &amp; values</h2>
+
+  <div class="pull">
+    <p>To make the morning of a wedding the calmest part of the day.</p>
+    <div class="attr">Mission</div>
+  </div>
+
+  <p>It passes the two tests that matter: it is specific enough to be false if she fails at it, and it describes something a customer actually wants. It also quietly sets the internal standard — every operational decision, from how many weddings to take in a weekend to how the timeline is written, gets measured against whether it makes the morning calmer.</p>
+
+  <h3 class="mini">Values, written as behaviours</h3>
+  <ul class="plain">
+    <li><strong>Early is on time.</strong> The schedule is built with slack in it, and the slack belongs to the bride, not to us.</li>
+    <li><strong>She should still look like herself.</strong> We adapt the reference to the hair in front of us, and we say so out loud at the trial.</li>
+    <li><strong>Say the real number first.</strong> Price, travel, timings and limits go in writing, up front, unprompted.</li>
+    <li><strong>The room is not ours.</strong> We are a guest in someone's most personal few hours. We work quietly, we clean up, we leave it better.</li>
+    <li><strong>One morning at a time.</strong> Never two weddings in a day. The whole promise collapses the moment we are rushing to the next one.</li>
+  </ul>
+</section>
+
+<!-- 05 -->
+<section class="sec">
+  <span class="num">05</span>
+  <h2>Positioning</h2>
+
+  <p><strong>For</strong> the bride who knows exactly how she wants to look and is quietly anxious about the morning running late, <strong>[Name]</strong> is the bridal hair specialist who takes charge of the entire getting-ready window — <strong>because</strong> the hair is only half of what she is actually buying, <strong>unlike</strong> stylists who arrive, style, and leave.</p>
+
+  <h3 class="mini">The competitive frame</h3>
+  <p>We are not positioned against other wedding hair stylists on skill — that is an argument nobody wins in a grid of photographs. We are positioned against the <em>experience of a chaotic morning</em>: the stylist who turns up thirty minutes late, the one who runs over and pushes the whole day back, the salon that treats a wedding like a regular blow-dry, the talented friend who does it as a favour and then nobody can say anything when it goes wrong.</p>
+
+  <p>That framing is generous rather than critical — it never requires naming or knocking a competitor, which matters in a small, referral-driven market where everybody knows everybody.</p>
+</section>
+
+<!-- 06 -->
+<section class="sec">
+  <span class="num">06</span>
+  <h2>The messaging spine</h2>
+  <p class="stand">Three fears. Three answers. Everything else is decoration.</p>
+
+  <p>Every bride booking hair is carrying the same three anxieties, in this order. The entire message architecture answers them one at a time, and every piece of copy across the deck, the site and the grid should ladder back to one of the three.</p>
+
+  <div class="pillars">
+    <div class="pillar">
+      <p class="word">Early</p>
+      <p class="fear">“Will she actually show up?”</p>
+      <p>The timeline is written and shared weeks ahead. She arrives before the call time, every time. The morning finishes ahead of the photographer, not behind them.</p>
+    </div>
+    <div class="pillar">
+      <p class="word">Yours</p>
+      <p class="fear">“Will I look like myself?”</p>
+      <p>The reference photo is a starting point, not a target. The trial exists to find the version of it that works on your hair, your face, your dress.</p>
+    </div>
+    <div class="pillar">
+      <p class="word">Holds</p>
+      <p class="fear">“Will it fall out by dinner?”</p>
+      <p>Built for a fourteen-hour day and photographed at the end of one. The proof is the eleven-o'clock picture, not the ten-o'clock one.</p>
+    </div>
+  </div>
+
+  <p>The hierarchy is deliberate. <strong>Early</strong> is the differentiator and leads on partner-facing material. <strong>Yours</strong> is the emotional hook and leads on bride-facing material. <strong>Holds</strong> is the functional proof and does its best work in captions, reviews and FAQ copy rather than in headlines.</p>
+</section>
+
+<!-- 07 -->
+<section class="sec">
+  <span class="num">07</span>
+  <h2>The offer</h2>
+  <p class="stand">Sell the morning, not the head.</p>
+
+  <p>The structural rule: everything is quoted as a morning with a party size, never as a per-person rate. Per-head pricing invites the bride to cut people out of the package to save money, which shrinks the booking and turns the service into a transaction. A morning with a size band does the opposite.</p>
+
+  <h3 class="mini">Package architecture</h3>
+  <table class="tbl">
+    <thead>
+      <tr><th>Package</th><th>Relative price</th><th>What it is</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>The Trial</td>
+        <td class="ratio">0.25×</td>
+        <td>Two hours, booked separately and paid at booking. Framed as the hair rehearsal, not an audition. Includes the veil test and a written note of what was decided. Non-refundable, and it is not deducted from the morning — it is a real service with real value.</td>
+      </tr>
+      <tr>
+        <td>The Morning</td>
+        <td class="ratio">1.0×</td>
+        <td>The anchor product and the price everything else is expressed against. Bride plus up to four. Timeline built and shared, arrival ahead of call time, veil fitted, touch-up kit left behind.</td>
+      </tr>
+      <tr>
+        <td>The Morning, Extended</td>
+        <td class="ratio">1.6×</td>
+        <td>Parties of five to eight. Second stylist included, which is what protects the schedule. This should be the package most actively sold — it is where the margin lives.</td>
+      </tr>
+      <tr>
+        <td>The Full Day</td>
+        <td class="ratio">2.1×</td>
+        <td>Everything above plus an evening return for the second look — veil out, hair down or restyled before the first dance. Sold as a photographable moment, because it is one.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 class="mini">Add-ons</h3>
+  <table class="tbl">
+    <tbody>
+      <tr><td>Additional party member</td><td class="ratio">0.12×</td><td>Beyond the band included in the package</td></tr>
+      <tr><td>Evening restyle only</td><td class="ratio">0.15×</td><td>Added to a Morning or Extended booking</td></tr>
+      <tr><td>Early start before 6am</td><td class="ratio">0.15×</td><td>Applied automatically, stated up front, never negotiated</td></tr>
+      <tr><td>Travel beyond 30 miles</td><td class="ratio">—</td><td>Per mile, plus accommodation the night before where travel exceeds ninety minutes. Non-negotiable, because the promise to arrive early depends on it.</td></tr>
+    </tbody>
+  </table>
+
+  <p>Real figures need her market, her city and her current rate, which are the main things still missing. But the ratios should hold regardless of where the anchor lands — set <strong>The Morning</strong> first, then derive the rest.</p>
+
+  <h3 class="mini">The pricing rule that protects the brand</h3>
+  <p><strong>Never discount the morning. If you have to move on price, remove scope.</strong> Drop the evening return, reduce the party band, shorten the timeline. A discounted price teaches the market a lower number and invites the next bride to ask for it. A reduced scope teaches them what the things are worth.</p>
+
+  <h3 class="mini">The partner offer</h3>
+  <p>Venues and planners get a different proposition entirely: a named contact, a guaranteed response time on enquiries, a commitment to never overrun the allotted slot, and a small stock of printed cards for the getting-ready suite. No commission — commission arrangements make a planner's recommendation look bought. What they get is the confidence that recommending her will never come back on them.</p>
+</section>
+
+<!-- 08 -->
+<section class="sec">
+  <span class="num">08</span>
+  <h2>Naming</h2>
+
+  <p>If the name is still open, the honest recommendation is <strong>her own name</strong>. In a referral-driven, trust-driven service where the product is a person in a room, a personal name outperforms an invented one almost every time — it is easier to recommend out loud, it makes her personally accountable in a way that reads as confidence, and it cannot be copied.</p>
+
+  <p>The full lockup would be <strong>[Firstname] [Lastname] — Bridal Hair</strong>, with the descriptor carrying the search and clarity work. <em>The Morning Of</em> then lives as the positioning platform rather than the trading name: it's the line on the deck cover, the site's opening statement, the name of the content series, the idea the guidelines are built around.</p>
+
+  <h3 class="mini">If she'd rather not use her name</h3>
+  <ul class="plain">
+    <li><strong>The Quiet Hour</strong> — closest to the concept, calm and premium, works well spoken aloud</li>
+    <li><strong>Half Past</strong> — time-anchored, memorable, slightly more modern in tone</li>
+    <li><strong>Kirby &amp; Co.</strong> — named for the grip, warm and insider-ish, reads as a small studio rather than one person, which helps if she plans to build a team</li>
+    <li><strong>First Light</strong> — the most conventionally pretty option, and correspondingly the least distinctive</li>
+  </ul>
+  <p>Whichever way it goes, check the handle, the domain and the local trading register together before falling in love with one — in this category the Instagram handle matters more than the domain.</p>
+</section>
+
+<!-- 09 -->
+<section class="sec">
+  <span class="num">09</span>
+  <h2>Voice</h2>
+  <p class="stand">She is the calmest person in a nervous room. Write like that.</p>
+
+  <ul class="plain">
+    <li><strong>Plain words, short sentences.</strong> The register is a competent friend, not a luxury brochure.</li>
+    <li><strong>Second person, always.</strong> “Your hair,” “you'll,” “we'll” — never “the bride” or “our clients.”</li>
+    <li><strong>Unhurried.</strong> No exclamation marks, no urgency, no “book now before dates go!” Scarcity is communicated by the calendar, not the copy.</li>
+    <li><strong>Specific over emotive.</strong> “We'll be there by seven” does more emotional work than “making your dream day magical.”</li>
+    <li><strong>Say the awkward thing first.</strong> Price, travel limits, what won't work on fine hair. Candour is the differentiator in a category built on flattery.</li>
+  </ul>
+
+  <h3 class="mini">Banned words</h3>
+  <p>Bespoke. Luxury. Couture. Transform. Pamper. Dream. Magical. Elevate. Journey. Every one of them appears on a thousand competitor sites and none of them survive contact with a real bride reading carefully.</p>
+</section>
+
+<!-- 10 -->
+<section class="sec">
+  <span class="num">10</span>
+  <h2>The journey</h2>
+  <p class="stand">Nine touchpoints. The brand either shows up at all of them or at none of them.</p>
+
+  <div class="step"><div class="when">Discover</div><div><h4>The grid, a venue list, or a friend</h4><p>Almost always Instagram first. The bar is met in three seconds by the quality of the back-of-head photography — nothing else in the brand gets a chance until that clears.</p></div></div>
+  <div class="step"><div class="when">Enquire</div><div><h4>The DM or form</h4><p>Replied to within one working day, in her voice, with the date checked and the real starting price stated immediately. Most competitors withhold price to force a conversation; stating it is on-brand and filters the wrong brides for free.</p></div></div>
+  <div class="step"><div class="when">Quote</div><div><h4>A written morning, not a price list</h4><p>The quote describes the shape of her morning — arrival time, running order, who's done when — with the price at the bottom. This document alone will win bookings against stylists who send a number in a DM.</p></div></div>
+  <div class="step"><div class="when">Book</div><div><h4>Deposit and a real contract</h4><p>Plain-English terms. This is the moment the mother is reassured.</p></div></div>
+  <div class="step"><div class="when">Trial</div><div><h4>The hair rehearsal</h4><p>Two hours. Photographed from the back in natural light — this is the primary source of portfolio content. She leaves with a written note of what was decided.</p></div></div>
+  <div class="step"><div class="when">6 weeks</div><div><h4>The check-in</h4><p>Prep instructions, the confirmed timeline, final party numbers. Low effort, disproportionate impact on how organised the whole thing feels.</p></div></div>
+  <div class="step"><div class="when">The day</div><div><h4>The morning</h4><p>The product. Early, quiet, on schedule, done before the photographer needs her.</p></div></div>
+  <div class="step"><div class="when">+3 days</div><div><h4>The note</h4><p>A short message while the feeling is still fresh — and the only moment a review should ever be asked for.</p></div></div>
+  <div class="step"><div class="when">+8 weeks</div><div><h4>The photographs</h4><p>Chase the photographer, not the bride. Professional images from the day are the highest-value content the business produces and the easiest to never get around to collecting.</p></div></div>
+</section>
+
+<!-- 11 -->
+<section class="sec">
+  <span class="num">11</span>
+  <h2>Content system</h2>
+
+  <p>Instagram is not a marketing channel in this category — it is the shopfront, the portfolio and the credibility check in one. It deserves a system rather than a habit.</p>
+
+  <h3 class="mini">Four pillars</h3>
+  <ul class="plain">
+    <li><strong>The work — 50%.</strong> Back-of-head, natural light, plain background. Never post a set without one.</li>
+    <li><strong>The room — 25%.</strong> Hands, pins, mirrors, curtains, the mess. This is the pillar nobody else is posting and the one that builds the brand rather than the portfolio.</li>
+    <li><strong>Her voice — 15%.</strong> Straight answers to real questions. How long a party of six actually takes. Why the trial is worth paying for. What holds and what doesn't on fine hair.</li>
+    <li><strong>Proof — 10%.</strong> Reviews, venues worked, planners partnered with.</li>
+  </ul>
+
+  <h3 class="mini">The ownable format</h3>
+  <p><strong>The 8am</strong> — one post from that morning's getting-ready room, every wedding, always at the same time of day. Same crop, same treatment, minimal caption. A named recurring series does something a stream of one-off posts cannot: it accumulates into an argument, and after thirty of them the territory belongs to her.</p>
+</section>
+
+<!-- 12 -->
+<section class="sec">
+  <span class="num">12</span>
+  <h2>Across the deliverables</h2>
+
+  <h3 class="mini">Logo</h3>
+  <p>Wordmark, monogram, and the brass hairpin, as set out in the style tile. The pin is the only element that should ever appear alone. Resist adding an illustrated mark — a drawn strand of hair or a pair of scissors would undo the positioning in a single stroke.</p>
+
+  <h3 class="mini">Website</h3>
+  <p>Six sections, in this order: the promise over a back-of-head image; recent work; what the morning includes; honest pricing from a stated starting number; travel radius and availability; enquiry form. Price and location visible without scrolling twice — hiding them is the single most common conversion mistake in this category.</p>
+
+  <h3 class="mini">Deck</h3>
+  <p>Build the partner deck first, not an investor deck. Ten pages aimed at venues and planners: the promise, the three pillars weighted toward <em>Early</em>, work at venues like theirs, exactly how she operates on a wedding morning, what partnership means, contact. This is the deliverable most likely to produce revenue this year.</p>
+
+  <h3 class="mini">Guidelines</h3>
+  <p>Ten pages, no more. Logo and clear space, misuse, palette with usage rules, the two typefaces, the four shot types with the never-list, voice do's and don'ts, and the three pillars. Anything longer will be opened once and never again.</p>
+</section>
+
+<!-- 13 -->
+<section class="sec">
+  <span class="num">13</span>
+  <h2>Guardrails</h2>
+  <p class="stand">The brand is mostly defined by what it refuses.</p>
+  <div class="never">
+    <ul>
+      <li>Never two weddings in one morning.</li>
+      <li>Never quote per head — always quote the morning.</li>
+      <li>Never post a set without a back-of-head shot in it.</li>
+      <li>Never discount the price; remove scope instead.</li>
+      <li>Never use a script font or a blush-pink palette.</li>
+      <li>Never say bespoke, luxury, or dream.</li>
+      <li>Never take a booking inside eight weeks without an urgency premium.</li>
+      <li>Never be merely on time.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 14 -->
+<section class="sec">
+  <span class="num">14</span>
+  <h2>How we'll know it works</h2>
+  <ul class="plain">
+    <li><strong>Average party size per booking.</strong> The clearest single measure of whether the morning is being sold instead of the head. This is the number to watch.</li>
+    <li><strong>Trial-to-booking conversion.</strong> Should sit very high. If it doesn't, the problem is upstream in the quote, not in the trial.</li>
+    <li><strong>Share of enquiries from venues and planners.</strong> The health of the referral engine, and the least fragile source of work.</li>
+    <li><strong>Reviews containing “calm”, “early”, “on time”, or “relaxed”.</strong> The direct test of whether the positioning has actually landed in customers' own words, rather than only in ours.</li>
+    <li><strong>Lead time on bookings.</strong> Rising lead time means the brand is working; falling lead time means she's competing on availability.</li>
+  </ul>
+</section>
+
+<!-- 15 -->
+<section class="sec">
+  <span class="num">15</span>
+  <h2>Open questions</h2>
+  <p>Five things that would sharpen this from a strong concept into a finished strategy.</p>
+
+  <div class="q"><h4>What's the name, and is it settled?</h4><p>Changes the logo direction more than anything else in this document.</p></div>
+  <div class="q"><h4>Where is she based, and what's the travel radius?</h4><p>Determines whether the market is a city, a county, or a destination proposition — and each implies a different price ceiling.</p></div>
+  <div class="q"><h4>What does she charge now?</h4><p>Sets the anchor that every ratio in section 07 hangs off.</p></div>
+  <div class="q"><h4>Solo, or does she want a team?</h4><p>The Extended and Full Day packages assume a second pair of hands. If it's solo forever, the offer needs restructuring around a smaller, higher-priced product.</p></div>
+  <div class="q"><h4>Who is the pitch deck really for?</h4><p>Written here as a venue and planner deck, which is the version most likely to generate revenue. If it's genuinely for investors, the spec changes substantially.</p></div>
+</section>
+
+</div>

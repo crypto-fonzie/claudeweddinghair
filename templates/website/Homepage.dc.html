@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Website homepage" description="Polished &amp; Pinned marketing homepage — hero, work, the morning, the ladder, service area" -->
+<helmet><script src="./ds-base.js"></script><style>body{margin:0;background:#EFEDE7}a:focus-visible{outline:2px solid #B98B4A;outline-offset:3px;border-radius:1px}@media(max-width:860px){[data-hp="header"]{flex-direction:column;align-items:flex-start!important;gap:20px!important;padding:20px!important}[data-hp="nav"]{gap:22px!important;flex-wrap:wrap}[data-hp="sec"]{padding:48px 20px!important}[data-hp="foot"]{padding:48px 20px!important}[data-hp="hero"]{padding:52px 20px!important;min-height:0!important}[data-hp="h1"]{font-size:40px!important;max-width:none!important}[data-hp="lede"]{font-size:16px!important}[data-hp="note"]{position:static!important;max-width:none!important;text-align:left!important;margin-top:28px!important}[data-hp="grid3"]{grid-template-columns:1fr!important;gap:28px!important}[data-hp="split"]{grid-template-columns:1fr!important;gap:36px!important}[data-hp="steprow"]{grid-template-columns:1fr!important;gap:6px!important}[data-hp="arearow"]{grid-template-columns:1fr!important;gap:4px!important}[data-hp="ctas"]{flex-wrap:wrap}[data-hp="navlink"],[data-hp="navlink-on"]{min-height:44px;display:inline-flex;align-items:center}}@media(hover:hover) and (pointer:fine){[data-hp="navlink"]:hover{border-bottom-color:#B98B4A;color:#241E19}[data-hp="navlink-on"]:hover{border-bottom-color:#6E4A2C;color:#6E4A2C}[data-hp="btn1"]:hover{background:#6E4A2C;border-color:#6E4A2C}[data-hp="btn2"]:hover{background:rgba(110,74,44,.10)}}@media(prefers-reduced-motion:reduce){[data-hp]{transition:none!important;animation:none!important}}</style></helmet>
+<div ref="{{ rootRef }}" style="font-family:'Karla',system-ui,sans-serif;font-weight:300;color:#241E19;font-size:15px;line-height:1.65">
+
+<header data-hp="header" style="display:flex;align-items:center;justify-content:space-between;gap:44px;padding:32px 68px;border-bottom:1px solid rgba(110,74,44,.18)">
+<span style="display:inline-flex;align-items:center;gap:14px">
+<img src="../../assets/pin-brass.svg" alt="" width="17" height="34">
+<span>
+<span style="display:block;font-family:'Instrument Serif',Georgia,serif;text-transform:uppercase;letter-spacing:.26em;text-indent:.26em;font-size:19px;line-height:1">Polished <i style="font-style:italic;color:#B98B4A;text-transform:none;letter-spacing:0">&amp;</i> Pinned</span>
+<span style="display:block;margin-top:8px;font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:#6E4A2C;font-weight:400">Bridal Hair<span style="color:#B98B4A;margin:0 .6em">·</span><span style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;text-transform:none;letter-spacing:.01em;font-size:11px">by Noelle</span></span>
+</span>
+</span>
+<nav data-hp="nav" style="display:flex;align-items:center;gap:44px">
+<a href="#work" data-hp="navlink" style="font-weight:500;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#6E4A2C;text-decoration:none;border-bottom:1px solid transparent;padding-bottom:4px;transition:border-bottom-color 160ms cubic-bezier(.23,1,.32,1),color 160ms cubic-bezier(.23,1,.32,1)">Work</a>
+<a href="#morning" data-hp="navlink" style="font-weight:500;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#6E4A2C;text-decoration:none;border-bottom:1px solid transparent;padding-bottom:4px;transition:border-bottom-color 160ms cubic-bezier(.23,1,.32,1),color 160ms cubic-bezier(.23,1,.32,1)">The morning</a>
+<a href="#enquire" data-hp="navlink-on" style="font-weight:500;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#241E19;text-decoration:none;border-bottom:1px solid #B98B4A;padding-bottom:4px;transition:border-bottom-color 160ms cubic-bezier(.23,1,.32,1),color 160ms cubic-bezier(.23,1,.32,1)">Enquire</a>
+</nav>
+</header>
+
+<section data-hp="hero" style="position:relative;background:var(--hp-hero-bg,#DEDAD1);color:var(--hp-hero-fg,#241E19);min-height:var(--hp-hero-min,460px);border-bottom:var(--hp-hero-border,none);display:flex;align-items:center;padding:var(--hp-hero-pad,84px 68px)">
+<div data-hp="split" style="max-width:1080px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr .8fr;gap:var(--hp-gap,84px);align-items:center">
+<div>
+<h1 data-hp="h1" class="pp-rise" style="margin:0;text-wrap:balance;max-width:var(--hp-hero-width,18ch);font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:var(--hp-h1,76px);line-height:.96;letter-spacing:-.015em">{{ heroTitle }}</h1>
+<p data-hp="lede" class="pp-rise" style="margin:32px 0 0;animation-delay:80ms;max-width:44ch;text-wrap:pretty;font-size:var(--hp-lede,17.5px);line-height:1.6;color:var(--hp-hero-sub,#241E19)">{{ heroLede }}</p>
+<div data-hp="ctas" class="pp-rise" style="margin-top:var(--hp-stack,44px);animation-delay:160ms;display:flex;gap:12px">
+<a href="#enquire" data-hp="btn1" style="display:inline-flex;align-items:center;padding:15px 34px;background:var(--hp-btn-bg,#241E19);color:var(--hp-btn-fg,#EFEDE7);font-weight:500;font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;border:1px solid var(--hp-btn-bd,#241E19);transition:background-color 160ms cubic-bezier(.23,1,.32,1),border-color 160ms cubic-bezier(.23,1,.32,1)">Start an enquiry</a>
+<a href="#work" data-hp="btn2" style="display:inline-flex;align-items:center;padding:15px 34px;background:transparent;color:var(--hp-btn2-fg,#241E19);font-weight:500;font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;border:1px solid var(--hp-btn2-bd,#241E19);transition:background-color 160ms cubic-bezier(.23,1,.32,1)">See recent work</a>
+</div>
+</div>
+<img src="../../assets/photos/walking-out-back.jpg" alt="Bride walking away across grass with the flower girl, braided low updo pinned at the nape" width="750" height="938" loading="eager" style="display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;background:#DEDAD1">
+</div>
+</section>
+
+<section id="work" data-hp="sec" style="padding:var(--hp-pad,84px 68px);border-bottom:1px solid rgba(110,74,44,.18)">
+<div style="max-width:1080px;margin:0 auto">
+<div data-hp="grid3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+<figure style="margin:0"><img src="../../assets/photos/chignon-low-back.jpg" alt="Low chignon pinned at the nape, seen from behind" width="800" height="1000" loading="lazy" style="display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;background:#DEDAD1"><figcaption style="margin-top:12px;font-size:12px;color:#6E4A2C;font-weight:400">Low chignon, pinned at the nape · Kortright, June</figcaption></figure>
+<figure style="margin:0"><img src="../../assets/photos/hands-working-bw.jpg" alt="Noelle sectioning a bride’s hair mid-set" width="800" height="1000" loading="lazy" style="display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;background:#DEDAD1"><figcaption style="margin-top:12px;font-size:12px;color:#6E4A2C;font-weight:400">Trial, natural light · Leslieville</figcaption></figure>
+<figure style="margin:0"><img src="../../assets/photos/party-done-waiting.jpg" alt="Bride and her party finished and waiting in the getting-ready room" width="800" height="1000" loading="lazy" style="display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;background:#DEDAD1"><figcaption style="margin-top:12px;font-size:12px;color:#6E4A2C;font-weight:400">The party, done and waiting · Niagara</figcaption></figure>
+</div>
+</div>
+</section>
+
+<section id="morning" data-hp="sec" style="padding:var(--hp-pad,84px 68px);border-bottom:1px solid rgba(110,74,44,.18)">
+<div data-hp="split" style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1.15fr;gap:var(--hp-gap,84px);align-items:start">
+<div>
+<p style="margin:0 0 24px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;color:#6E4A2C">What the morning includes</p>
+<h2 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:34px;line-height:1.1;letter-spacing:-.012em;max-width:18ch">A morning that runs on time.</h2>
+</div>
+<ul style="list-style:none;margin:0;padding:0;display:grid;gap:14px">
+<li style="display:grid;grid-template-columns:18px 1fr;gap:10px;align-items:start"><img src="../../assets/pin-brass.svg" alt="" width="9" height="18" style="margin-top:4px"><span>A trial, treated as a proper appointment rather than an audition</span></li>
+<li style="display:grid;grid-template-columns:18px 1fr;gap:10px;align-items:start"><img src="../../assets/pin-brass.svg" alt="" width="9" height="18" style="margin-top:4px"><span>A written hair timeline, shared with you and your planner</span></li>
+<li style="display:grid;grid-template-columns:18px 1fr;gap:10px;align-items:start"><img src="../../assets/pin-brass.svg" alt="" width="9" height="18" style="margin-top:4px"><span>Hair for you and your party, on that schedule</span></li>
+<li style="display:grid;grid-template-columns:18px 1fr;gap:10px;align-items:start"><img src="../../assets/pin-brass.svg" alt="" width="9" height="18" style="margin-top:4px"><span>Veil and accessory fitting, pinned and tested before we leave</span></li>
+<li style="display:grid;grid-template-columns:18px 1fr;gap:10px;align-items:start"><img src="../../assets/pin-brass.svg" alt="" width="9" height="18" style="margin-top:4px"><span>A touch-up kit left behind — pins, spray, a spare comb</span></li>
+<li style="display:grid;grid-template-columns:18px 1fr;gap:10px;align-items:start"><img src="../../assets/pin-brass.svg" alt="" width="9" height="18" style="margin-top:4px"><span>Care and prep instructions in the week before</span></li>
+</ul>
+</div>
+</section>
+
+<section data-hp="sec" style="padding:var(--hp-pad,84px 68px);background:#DEDAD1">
+<div style="max-width:1080px;margin:0 auto">
+<p style="margin:0 0 24px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;color:#6E4A2C">How it goes</p>
+<h2 style="margin:0 0 44px;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:34px;line-height:1.1;letter-spacing:-.012em;max-width:20ch">Three steps, and you know the timing after the first one.</h2>
+<div style="display:grid;grid-template-columns:180px 220px 1fr;gap:24px;align-items:start;padding:18px 0;border-bottom:1px solid #B98B4A" data-hp="steprow">
+<span style="font-weight:500;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#B98B4A;padding-top:6px">First</span>
+<span style="font-family:'Instrument Serif',Georgia,serif;font-size:20px;line-height:1.15;color:#6E4A2C">The consultation</span>
+<p style="margin:0;font-size:13.5px;line-height:1.55">A call or a coffee. We check the date, the location and the party size, and you get a real number before anything is booked.</p>
+</div>
+<div style="display:grid;grid-template-columns:180px 220px 1fr;gap:24px;align-items:start;padding:18px 0;border-bottom:1px solid #B98B4A" data-hp="steprow">
+<span style="font-weight:500;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#B98B4A;padding-top:6px">Then</span>
+<span style="font-family:'Instrument Serif',Georgia,serif;font-size:20px;line-height:1.15;color:#6E4A2C">The trial</span>
+<p style="margin:0;font-size:13.5px;line-height:1.55">Two hours, booked as its own appointment. We find the version of your reference photo that works on your hair, and photograph it from the back.</p>
+</div>
+<div style="display:grid;grid-template-columns:180px 220px 1fr;gap:24px;align-items:start;padding:18px 0" data-hp="steprow">
+<span style="font-weight:500;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#B98B4A;padding-top:6px">The day</span>
+<span style="font-family:'Instrument Serif',Georgia,serif;font-size:20px;line-height:1.15;color:#6E4A2C">The morning</span>
+<p style="margin:0;font-size:13.5px;line-height:1.55">We arrive ahead of call time with the running order already written. Party first, you second to last, finished before the photographer needs you.</p>
+</div>
+</div>
+</section>
+
+<section id="noelle" data-hp="sec" style="padding:var(--hp-pad,84px 68px);border-bottom:1px solid rgba(110,74,44,.18)">
+<div data-hp="split" style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:.75fr 1fr;gap:var(--hp-gap,84px);align-items:end">
+<img src="../../assets/photos/rollers-in-the-room.jpg" alt="Setting rollers through long dark hair before the pin-up" width="800" height="1000" loading="lazy" style="display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;background:#DEDAD1">
+<div>
+<h2 style="margin:0 0 26px;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:44px;line-height:1.1;letter-spacing:-.012em">I'm Noelle.</h2>
+<p style="margin:0 0 18px;max-width:56ch;font-size:17.5px;line-height:1.6;text-wrap:pretty">I do the hair, and I do it myself. One wedding a day, hair only, in your room.</p>
+<p style="margin:0 0 30px;max-width:56ch;text-wrap:pretty">You'll have the running order six weeks out and I'll be set up before your call time. If something won't hold on your hair, you'll hear it at the trial rather than on the morning.</p>
+<a href="#morning" style="font-weight:500;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#241E19;text-decoration:none;border-bottom:1px solid #B98B4A;padding-bottom:4px;transition:border-bottom-color 160ms cubic-bezier(.23,1,.32,1),color 160ms cubic-bezier(.23,1,.32,1)">How the morning works</a>
+</div>
+</div>
+</section>
+
+<section data-hp="sec" style="padding:var(--hp-pad,84px 68px);border-bottom:1px solid rgba(110,74,44,.18)">
+<div style="max-width:1080px;margin:0 auto">
+<h2 style="margin:0 0 30px;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:34px;line-height:1.1;letter-spacing:-.012em">Across the GTA.</h2>
+<p style="margin:0;max-width:50ch;font-family:'Instrument Serif',Georgia,serif;font-size:23px;line-height:1.5;text-wrap:pretty;color:#6E4A2C">Toronto and the inner suburbs: North York, Etobicoke, Scarborough, East York. West through Mississauga, Oakville, Burlington and Brampton. North to Vaughan, Markham, Richmond Hill, Aurora and Newmarket. East to Pickering, Ajax, Whitby and Oshawa. Niagara, Muskoka and Prince Edward County by arrangement.</p>
+<p style="margin:34px 0 0;max-width:56ch;font-size:15px;line-height:1.65;text-wrap:pretty">Travel is quoted per wedding. Beyond ninety minutes we stay the night before, so the arrival time holds whatever the traffic does.</p>
+</div>
+</section>
+
+<section id="enquire" data-hp="sec" style="scroll-margin-top:24px;padding:var(--hp-pad,84px 68px) 120px">
+<div data-hp="split" style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr;gap:var(--hp-gap,84px);align-items:center">
+<figure style="margin:0;background:#DEDAD1;padding:34px 38px">
+<blockquote style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:25px;line-height:1.35;color:#6E4A2C;max-width:34ch">{{ quote }}</blockquote>
+<figcaption style="margin-top:16px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6E4A2C;font-weight:400">Noelle</figcaption>
+</figure>
+<div>
+<p style="margin:0 0 32px;max-width:66ch">There is no price list. Every morning is a different length, a different party and a different drive, so we talk first and give you a real number on the call.</p>
+<a href="mailto:hello@polishedandpinned.ca?subject=Wedding%20hair%20enquiry" data-hp="btn1" style="display:inline-flex;align-items:center;padding:15px 34px;background:#241E19;color:#EFEDE7;font-weight:500;font-size:12px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;border:1px solid #241E19;transition:background-color 160ms cubic-bezier(.23,1,.32,1),border-color 160ms cubic-bezier(.23,1,.32,1)">Start an enquiry</a>
+<p style="margin:18px 0 0;font-size:13.5px;color:#6E4A2C">Or write to <a href="mailto:hello@polishedandpinned.ca?subject=Wedding%20hair%20enquiry" style="color:#6E4A2C;border-bottom:1px solid rgba(110,74,44,.3)">hello@polishedandpinned.ca</a></p>
+</div>
+</div>
+</section>
+
+<footer data-hp="foot" style="background:#241E19;color:#EFEDE7;padding:var(--hp-pad,84px 68px) 44px">
+<div data-hp="split" style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:var(--hp-gap,84px);align-items:start">
+<div>
+<span style="display:inline-block;text-align:center;font-family:'Instrument Serif',Georgia,serif;text-transform:uppercase;font-size:26px;line-height:1">
+<span style="display:block;letter-spacing:.30em;text-indent:.30em;color:#EFEDE7">Polished</span>
+<span style="display:block;font-style:italic;text-transform:none;color:#B98B4A;letter-spacing:0;text-indent:0;font-size:20px;margin:.14em 0">&amp;</span>
+<span style="display:block;letter-spacing:.60em;text-indent:.60em;color:#EFEDE7">Pinned</span>
+</span>
+<p style="margin:44px 0 0;font-size:13.5px;letter-spacing:.02em;color:#DEDAD1">hello@polishedandpinned.ca<span style="color:#B98B4A;margin:0 .8em">·</span>@polishedandpinnedbridal<span style="color:#B98B4A;margin:0 .8em">·</span>polishedandpinned.ca</p>
+<p style="margin:12px 0 0;font-size:13.5px;color:#9DA391">Happy to walk a venue, meet the team, or be on standby for a date you're holding.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<span style="font-weight:500;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#B98B4A">Where we go</span>
+<span style="font-size:13.5px;color:#DEDAD1">Toronto</span>
+<span style="font-size:13.5px;color:#DEDAD1">Mississauga &amp; west</span>
+<span style="font-size:13.5px;color:#DEDAD1">Vaughan &amp; north</span>
+<span style="font-size:13.5px;color:#DEDAD1">Durham &amp; east</span>
+</div>
+</div>
+</footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900},&quot;air&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Composed&quot;,&quot;Generous&quot;,&quot;Editorial&quot;],&quot;default&quot;:&quot;Composed&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Feel&quot;,&quot;label&quot;:&quot;Air&quot;},&quot;heroTreatment&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Panel&quot;,&quot;Full bleed&quot;,&quot;Quiet&quot;],&quot;default&quot;:&quot;Panel&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Feel&quot;,&quot;label&quot;:&quot;Hero treatment&quot;},&quot;voice&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Plain&quot;,&quot;Elevated&quot;],&quot;default&quot;:&quot;Plain&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Feel&quot;,&quot;label&quot;:&quot;Voice&quot;}}">const HP_AIR = {
+  Composed:  { "pad": "52px 48px", "hero-pad": "56px 48px", "hero-min": "360px", "h1": "58px", "lede": "16.5px", "gap": "56px", "stack": "32px" },
+  Generous:  { "pad": "84px 68px", "hero-pad": "84px 68px", "hero-min": "460px", "h1": "76px", "lede": "17.5px", "gap": "84px", "stack": "44px" },
+  Editorial: { "pad": "132px 96px", "hero-pad": "136px 96px", "hero-min": "640px", "h1": "98px", "lede": "19px", "gap": "112px", "stack": "56px" }
+};
+const HP_HERO = {
+  Panel:        { "hero-bg": "#DEDAD1", "hero-fg": "#241E19", "hero-sub": "#241E19", "hero-note": "#6E4A2C", "btn-bg": "#241E19", "btn-fg": "#EFEDE7", "btn-bd": "#241E19", "btn2-fg": "#241E19", "btn2-bd": "#241E19", "hero-border": "none" },
+  "Full bleed": { "hero-bg": "#241E19", "hero-fg": "#EFEDE7", "hero-sub": "#DEDAD1", "hero-note": "#B98B4A", "btn-bg": "#EFEDE7", "btn-fg": "#241E19", "btn-bd": "#EFEDE7", "btn2-fg": "#EFEDE7", "btn2-bd": "#EFEDE7", "hero-border": "none" },
+  Quiet:        { "hero-bg": "#EFEDE7", "hero-fg": "#241E19", "hero-sub": "#241E19", "hero-note": "#6E4A2C", "btn-bg": "#241E19", "btn-fg": "#EFEDE7", "btn-bd": "#241E19", "btn2-fg": "#241E19", "btn2-bd": "#241E19", "hero-border": "1px solid rgba(110,74,44,.18)" }
+};
+
+class Component extends DCLogic {
+  rootRef = React.createRef();
+
+  applyVars() {
+    const el = this.rootRef.current;
+    if (!el) return;
+    const vars = {
+      ...(HP_AIR[this.props.air] || HP_AIR.Generous),
+      ...(HP_HERO[this.props.heroTreatment] || HP_HERO.Panel),
+      "hero-width": this.props.voice === "Elevated" ? "26ch" : "18ch"
+    };
+    for (const [k, v] of Object.entries(vars)) el.style.setProperty("--hp-" + k, v);
+  }
+
+  componentDidMount() { this.applyVars(); }
+  componentDidUpdate() { this.applyVars(); }
+
+  renderVals() {
+    const V = this.props.voice === "Elevated"
+      ? { heroTitle: "Effortless elegance for your most unforgettable day.",
+          heroLede: "Bridal hair created on location, across the Greater Toronto Area.",
+          quote: "Creating beautiful hair for life\u2019s most meaningful moments." }
+      : { heroTitle: "We\u2019re there before anyone else is.",
+          heroLede: "Mobile bridal hair across the GTA. Hair only, on location, one wedding a day.",
+          quote: "The timeline goes out six weeks ahead. You\u2019ll know the shape of the morning before we do." };
+    return { ...V, rootRef: this.rootRef };
+  }
+}
+</script>
+</body>
+</html>

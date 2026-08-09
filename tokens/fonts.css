@@ -1,0 +1,14 @@
+/* Webfonts — Instrument Serif (Regular + Italic) and Karla (300/400/500).
+   No binaries were supplied with the brand sources; both faces are SIL OFL and
+   are loaded from Google Fonts, which is what the typography spec prescribes.
+   To self-host later, drop woff2 files in assets/fonts/ and replace this import
+   with local @font-face rules — the family names below must not change. */
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Karla:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap");
+
+:root {
+  --font-display: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --font-body: "Karla", system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Email + anywhere webfonts are unreliable */
+  --font-display-fallback: Georgia, "Times New Roman", serif;
+  --font-body-fallback: system-ui, -apple-system, "Segoe UI", sans-serif;
+}

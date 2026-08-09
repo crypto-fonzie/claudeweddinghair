@@ -1,0 +1,29 @@
+/* Whitespace is the premium signal. Section padding 64–84px desktop,
+   page margins never below 24px on mobile, content never wider than 1080px. */
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 44px;
+  --space-8: 64px;
+  --space-9: 84px;
+  --space-10: 120px;
+
+  --section-y: clamp(46px, 7vw, 84px); /* @kind spacing */
+  --page-gutter: clamp(24px, 5vw, 68px); /* @kind spacing */
+  --content-max: 1080px;
+  --content-narrow: 860px;
+
+  --button-padding-y: 15px;
+  --button-padding-x: 34px;
+  --button-padding-y-sm: 11px;
+  --button-padding-x-sm: 24px;
+  --input-padding-y: 13px;
+  --input-padding-x: 14px;
+  --card-padding: 28px;
+  --stack-gap: 14px;      /* between sibling blocks in a grid */
+  --rise-stagger: 80ms; /* @kind other */
+}

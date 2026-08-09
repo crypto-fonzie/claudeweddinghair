@@ -1,0 +1,20 @@
+/* Corner radius is zero. Everywhere. No exceptions except the avatar crop,
+   which is a platform mask rather than a brand decision.
+   No drop shadows, no gradients, no glows, no blur — depth is Tulle on Morning. */
+:root {
+  --radius: 0;
+  --radius-avatar: 50%;
+
+  --border-width: 1px;
+  --border-hairline: 1px solid var(--line-hairline);
+  --border-faint: 1px solid var(--line-faint);
+  --border-strong: 1px solid var(--line-strong);
+  --border-accent: 1px solid var(--line-accent);
+  --border-quote: 2px solid var(--brass);   /* the left keyline on a pull quote */
+
+  --shadow-none: none;
+
+  /* The pin, drawn at two weights — fine above 60px, heavy below it */
+  --pin-stroke: 2.6;
+  --pin-stroke-small: 4.5;
+}
