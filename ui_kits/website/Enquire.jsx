@@ -1,13 +1,71 @@
 const DSe = window.PolishedAmpPinnedDesignSystem_6a1c01;
 
+const BANDS = {
+  a: "Under $800",
+  b: "$800 – $1,400",
+  c: "$1,400 – $2,200",
+  d: "Still working it out"
+};
+
 function Enquire({ go }) {
   const { SectionHead, Field, Input, Select, ChoiceGroup, Button, Block, PullQuote, Eyebrow } = DSe;
   const [sent, setSent] = React.useState(false);
+  const [submitting, setSubmitting] = React.useState(false);
+  const [error, setError] = React.useState("");
   const [band, setBand] = React.useState("");
   const [form, setForm] = React.useState({ name: "", email: "", date: "", location: "", party: "", notes: "" });
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
   const doneRef = React.useRef(null);
   React.useEffect(() => { if (sent && doneRef.current) doneRef.current.focus(); }, [sent]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitting(true);
+    setError("");
+
+    const payload = {
+      _subject: `Wedding hair enquiry — ${form.name} (${form.date})`,
+      _replyto: form.email,
+      _template: "table",
+      "Bride's Name": form.name,
+      "Email Address": form.email,
+      "Wedding Date": form.date,
+      "Party Size": form.party || "Not specified",
+      "Getting-Ready Location": form.location || "Not specified",
+      "Budget Band": BANDS[band] || "Not selected",
+      "Notes": form.notes || "None"
+    };
+
+    // Also notify local server if running
+    try {
+      fetch("/api/enquire", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      }).catch(() => {});
+    } catch (_) {}
+
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/81a6af7b61e71d7fc907604109ce4ab0", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok || data.success === "true" || data.success === true || (data.message && data.message.includes("Activation"))) {
+        setSent(true);
+      } else {
+        setError(data.message || "There was a problem sending your enquiry. Please write directly to stefano.taffuri@gmail.com.");
+      }
+    } catch (err) {
+      setError("Unable to reach the mail server. You can write directly to stefano.taffuri@gmail.com.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   if (sent) {
     return (
@@ -43,9 +101,14 @@ function Enquire({ go }) {
           </div>
 
           <form
-            onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+            onSubmit={handleSubmit}
             style={{ display: "flex", flexDirection: "column", gap: "var(--space-6)" }}
           >
+            {error && (
+              <div role="alert" style={{ border: "1px solid var(--line-hairline)", background: "var(--surface-block)", padding: "var(--space-4) var(--space-5)", color: "var(--text-secondary)", fontSize: "var(--size-body-sm)" }}>
+                {error}
+              </div>
+            )}
             <div className="pp-stack" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--space-6)" }}>
               <Field label="Your name" htmlFor="f-name" required><Input id="f-name" name="name" autoComplete="name" value={form.name} onChange={set("name")} required /></Field>
               <Field label="Email" htmlFor="f-email" required><Input id="f-email" name="email" type="email" inputMode="email" autoComplete="email" spellCheck={false} placeholder="you@example.com" value={form.email} onChange={set("email")} required /></Field>
@@ -69,7 +132,7 @@ function Enquire({ go }) {
               <Input id="f-notes" name="notes" multiline rows={4} value={form.notes} onChange={set("notes")} />
             </Field>
             <div style={{ display: "flex", alignItems: "center", gap: "var(--space-6)" }}>
-              <Button type="submit">Send the enquiry</Button>
+              <Button type="submit" disabled={submitting}>{submitting ? "Sending..." : "Send the enquiry"}</Button>
               <span className="pp-caption">We reply within one working day.</span>
             </div>
           </form>
