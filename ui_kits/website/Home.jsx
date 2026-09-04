@@ -11,7 +11,7 @@ function Home({ go }) {
           <p className="pp-lede pp-rise" style={{ marginTop: "var(--space-6)", maxWidth: "44ch", textWrap: "pretty", animationDelay: "80ms" }}>
             Mobile bridal hair across the GTA. Hair only, on location, one wedding a day.
           </p>
-          <div className="pp-rise" style={{ marginTop: "var(--space-7)", display: "flex", gap: "var(--space-3)", animationDelay: "160ms" }}>
+          <div className="pp-rise pp-cta-group" style={{ marginTop: "var(--space-7)", display: "flex", flexWrap: "wrap", gap: "var(--space-3)", animationDelay: "160ms" }}>
             <Button onClick={() => go("enquire")}>Start an enquiry</Button>
             <Button variant="secondary" onClick={() => go("work")}>See recent work</Button>
           </div>

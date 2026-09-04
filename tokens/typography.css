@@ -7,13 +7,13 @@
   --weight-regular: 400;
   --weight-medium: 500;
 
-  /* Sizes — desktop web. Scale down 15–20% on mobile. */
-  --size-hero: 76px;        /* range 64–92 */
-  --size-headline: 40px;    /* range 38–44 */
-  --size-subhead: 30px;     /* range 28–32 */
-  --size-title: 23px;
-  --size-quote: 25px;       /* range 22–27, italic */
-  --size-lede: 17.5px;
+  /* Sizes — desktop web with fluid mobile scaling */
+  --size-hero: clamp(40px, 8vw, 76px);        /* range 40 on mobile, 76 on desktop */
+  --size-headline: clamp(28px, 5.5vw, 40px);    /* range 28 on mobile, 40 on desktop */
+  --size-subhead: clamp(22px, 4.5vw, 30px);     /* range 22 on mobile, 30 on desktop */
+  --size-title: clamp(19px, 3.5vw, 23px);
+  --size-quote: clamp(20px, 3.8vw, 25px);       /* range 20–25, italic */
+  --size-lede: clamp(16px, 2.5vw, 17.5px);
   --size-body: 15px;
   --size-body-sm: 13.5px;
   --size-caption: 12px;

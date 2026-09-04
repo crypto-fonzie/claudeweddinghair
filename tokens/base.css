@@ -46,6 +46,59 @@ table { border-collapse: collapse; }
 @media (max-width: 1024px) { .pp-stack-2 { grid-template-columns: repeat(2, 1fr) !important; } }
 @media (max-width: 760px) {
   .pp-stack, .pp-stack-2 { grid-template-columns: 1fr !important; }
+
+  /* Mobile header: stack lockup and navigation with generous touch targets */
+  header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+    padding: 20px var(--page-gutter) !important;
+  }
+  header nav {
+    width: 100%;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 20px !important;
+    align-items: center !important;
+  }
+  header nav a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Hero headline and CTA buttons on mobile */
+  .pp-hero {
+    max-width: none !important;
+    line-height: 1.04 !important;
+  }
+  .pp-cta-group, div:has(> button) {
+    flex-wrap: wrap !important;
+  }
+
+  /* Form choice grid: 2 columns on mobile instead of 4 */
+  div:has(> .pp-choice), .pp-choice-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Footer on mobile: stack columns cleanly */
+  footer > div {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-7) !important;
+  }
+  footer p {
+    word-break: break-word;
+  }
+}
+
+@media (max-width: 440px) {
+  /* Single column for budget choice tiles on narrow screens */
+  div:has(> .pp-choice), .pp-choice-grid {
+    grid-template-columns: 1fr !important;
+  }
+  :root {
+    --button-padding-x: 24px;
+  }
 }
 
 /* Choice tiles hide their native control, so the focus ring goes on the tile. */
